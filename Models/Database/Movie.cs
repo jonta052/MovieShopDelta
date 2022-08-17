@@ -7,5 +7,6 @@ namespace MovieShopDelta.Models.Database
 {
     public class Movie
     {
+
     }
 }
