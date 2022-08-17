@@ -134,6 +134,7 @@
     <Compile Include="Models\Database\OrderRow.cs" />
     <Compile Include="Models\Database\Customer.cs" />
     <Compile Include="Models\Database\Movie.cs" />
+    <Compile Include="Models\Database\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
