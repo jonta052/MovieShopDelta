@@ -5,10 +5,7 @@ using System.Web;
 
 namespace MovieShopDelta.Models.Database
 {
-    public class Movie
+    public class Customer
     {
-
-        //Jonas
-
     }
 }
