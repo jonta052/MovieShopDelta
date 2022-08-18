@@ -7,5 +7,6 @@ namespace MovieShopDelta.Models.Database
 {
     public class Customer
     {
+        public string name = "Andre";
     }
 }
