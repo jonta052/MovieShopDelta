@@ -8,7 +8,6 @@ namespace MovieShopDelta.Models.Database
 {
     public class Customer
     {
-        public string name = "Andre";
         public int Id { get; set; }
 
         [Required]
@@ -23,6 +22,21 @@ namespace MovieShopDelta.Models.Database
 
         [Required]
         [StringLength(200)]
+        [Display(Name = "Billing Address")]
+        public string BillingAddress { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "Billing City")]
+
+        public string BillingCity { get; set; }
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "Billing Postal Code")]
+        public string BillingZip { get; set; }
+
+        [Required]
+        [StringLength(200)]
         [Display(Name = "Delivery Address")]
         public string DeliveryAddress { get; set; }
 
@@ -34,6 +48,7 @@ namespace MovieShopDelta.Models.Database
         [Required]
         [StringLength(100)]
         [Display(Name = "Postal Code")]
+        //[DataType(DataType.PostalCode)]
         public string DeliveryZip { get; set; }
 
         [Required]
