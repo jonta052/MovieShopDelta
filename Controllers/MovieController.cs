@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Data.Entity;
 using System.Web;
@@ -17,7 +18,23 @@ namespace MovieShopDelta.Controllers
         {
             return View();
         }
+        
+        public ActionResult AddMovie()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult AddMovie([Bind(Include = "Id,Title,Director,ReleaseYear,Genre,Price")] Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Movies.Add(movie);
+                db.SaveChanges();
+                return RedirectToAction("AddMovie");
+            }
+            return View(movie);
+        }
         public ActionResult AllMovies()
         {
             var movieList = db.Movies.ToList();
