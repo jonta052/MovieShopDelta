@@ -193,7 +193,13 @@
                 OrderId = 3,
                 MovieId = 7,
                 Price = 98
-            }
+            },
+             new Models.Database.OrderRow
+             {
+                 OrderId = 4,
+                 MovieId = 7,
+                 Price = 98
+             }
             );
 
             context.SaveChanges();

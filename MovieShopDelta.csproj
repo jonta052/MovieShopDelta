@@ -144,6 +144,7 @@
     <Compile Include="Models\Database\Customer.cs" />
     <Compile Include="Models\Database\Movie.cs" />
     <Compile Include="Models\Database\Order.cs" />
+    <Compile Include="Models\ViewModels\MostPopularMoviesVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +223,12 @@
     <Content Include="Views\Movie\AddMovie.cshtml" />
     <Content Include="Views\Movie\AllMovies.cshtml" />
     <Content Include="Views\Movie\_AllMovies.cshtml" />
+    <Content Include="Views\Home\_MostPopularMovies.cshtml" />
+    <Content Include="Views\Home\_FiveNewestMovies.cshtml" />
+    <Content Include="Views\Home\_FiveOldestMovies.cshtml" />
+    <Content Include="Views\Home\_FiveCheapestMovies.cshtml" />
+    <Content Include="Views\Home\_MostExpensiveOrder.cshtml" />
+    <Content Include="Views\Home\MostPopularMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
