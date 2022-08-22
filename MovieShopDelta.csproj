@@ -135,9 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208181314289_initial.cs" />
-    <Compile Include="Migrations\202208181314289_initial.designer.cs">
-      <DependentUpon>202208181314289_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202208190916497_Creating D.cs" />
+    <Compile Include="Migrations\202208190916497_Creating D.designer.cs">
+      <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
@@ -219,12 +219,22 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+
     <Content Include="Views\Customer\ShoppingCart.cshtml" />
-    <Content Include="Views\Customer\AddMovie.cshtml" />
+    
+  </ItemGroup>
+  <ItemGroup>
+    
+    <Folder Include="Views\Movie\" />
+
+    <Content Include="Views\Movie\AddMovie.cshtml" />
+    <Content Include="Views\Movie\AllMovies.cshtml" />
+    <Content Include="Views\Movie\_AllMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Movie\" />
+    <Folder Include="Views\Customer\" />
+
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
@@ -233,8 +243,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208181314289_initial.resx">
-      <DependentUpon>202208181314289_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208190916497_Creating D.resx">
+      <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
