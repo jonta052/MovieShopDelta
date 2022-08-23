@@ -65,6 +65,7 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult FiveNewestMovies()
         {
+            // QUERY SYNTAX
             //var fiveNewestMovies = (from movie in db.Movies
             //                        orderby movie.ReleaseYear descending
             //                        select movie)
@@ -81,6 +82,7 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult FiveOldestMovies()
         {
+            // QUERY SYNTAX
             //var fiveOldestMovies = (from movie in db.Movies
             //                        orderby movie.ReleaseYear
             //                        select movie)
@@ -97,6 +99,7 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult FiveCheapestMovies()
         {
+            // QUERY SYNTAX
             //var fiveCheapestMovies = (from movie in db.Movies
             //                        orderby movie.Price
             //                        select movie)
@@ -115,19 +118,19 @@ namespace MovieShopDelta.Controllers
         {
             var mostExpensiveOrder = db.Orders
                 .Join(db.OrderRows,
-                ord => ord.Id, 
+                ord => ord.Id,
                 orderrow => orderrow.OrderId,
-                (ord1, orderrow) => new 
+                (ord1, orderrow) => new
                 {
                     OrderId = ord1.Id,
                     Price = orderrow.Price,
                     CustomerId = ord1.CustomerId
                 })
-                
+
                 .Join(db.Customers,
                 ord2 => ord2.CustomerId,
                 cust => cust.Id,
-                (ord2, cust) => new 
+                (ord2, cust) => new
                 {
                     OrderId = ord2.OrderId,
                     Price = ord2.Price,
@@ -135,22 +138,63 @@ namespace MovieShopDelta.Controllers
                     FirstName = cust.FirstName,
                     LastName = cust.LastName
                 })
-                
-                .GroupBy(custid => custid.CustomerId)
-                
+
+                .GroupBy(ordid => ordid.OrderId)
+
                 .Select(obj => new MostExpensiveOrderVM
                 {
                     FirstName = obj.FirstOrDefault().FirstName,
                     LastName = obj.FirstOrDefault().LastName,
                     SumOrder = obj.Sum(sum => sum.Price)
                 })
-                
+
                 .OrderByDescending(sum => sum.SumOrder)
-                
+
                 .FirstOrDefault();
 
             return PartialView(mostExpensiveOrder);
         }
 
+        // SUM OF ALL ORDERS MADE BY ONE CUSTOMER - TAKE MOST EXPESIVE ONE
+        //public ActionResult MostExpensiveOrder()
+        //{
+        //    var mostExpensiveOrder = db.Orders
+        //        .Join(db.OrderRows,
+        //        ord => ord.Id, 
+        //        orderrow => orderrow.OrderId,
+        //        (ord1, orderrow) => new 
+        //        {
+        //            OrderId = ord1.Id,
+        //            Price = orderrow.Price,
+        //            CustomerId = ord1.CustomerId
+        //        })
+
+        //        .Join(db.Customers,
+        //        ord2 => ord2.CustomerId,
+        //        cust => cust.Id,
+        //        (ord2, cust) => new 
+        //        {
+        //            OrderId = ord2.OrderId,
+        //            Price = ord2.Price,
+        //            CustomerId = ord2.CustomerId,
+        //            FirstName = cust.FirstName,
+        //            LastName = cust.LastName
+        //        })
+
+        //        .GroupBy(custid => custid.CustomerId)
+
+        //        .Select(obj => new MostExpensiveOrderVM
+        //        {
+        //            FirstName = obj.FirstOrDefault().FirstName,
+        //            LastName = obj.FirstOrDefault().LastName,
+        //            SumOrder = obj.Sum(sum => sum.Price)
+        //        })
+
+        //        .OrderByDescending(sum => sum.SumOrder)
+
+        //        .FirstOrDefault();
+
+        //    return PartialView(mostExpensiveOrder);
+        //}
     }
 }
