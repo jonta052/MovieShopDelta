@@ -20,7 +20,7 @@ namespace MovieShopDelta.Controllers
         {
             Session["MovieIds"] = Session["MovieIds"] + id.ToString() + ",";
 
-            return RedirectToAction("AddMovie");
+            return RedirectToAction("AllMovies", "Movie");
         }
 
         public ActionResult RemFromCart(int? id)
@@ -33,7 +33,7 @@ namespace MovieShopDelta.Controllers
             listOfMovieIds = String.Join(",", temp.ToArray());
             Session["MovieIds"] = listOfMovieIds;
 
-            return RedirectToAction("AddMovie");
+            return RedirectToAction("AllMovies", "Movie");
         }
         //This page and view to be repaced
         public ActionResult AddMovie(/*Movie movie*/)
@@ -92,7 +92,7 @@ namespace MovieShopDelta.Controllers
             //Get Customer Id
             var customerId = (from c in customerList where c.EmailAddress == email select c.Id).FirstOrDefault();
             //Check if we have a customer id
-            if (String.IsNullOrEmpty(customerId.ToString()) == false)
+            if (String.IsNullOrEmpty(customerId.ToString()) == true)
             {
                 return RedirectToAction("AddCustomer", "Customer");
             }
@@ -106,11 +106,21 @@ namespace MovieShopDelta.Controllers
                 //Save some stuff
                 Order order = new Order();
                 order.CustomerId = customerId;
+                foreach (var mid in lomi)
+                {
+                    order.OrderRows.Add(new OrderRow()
+                    {
+                        MovieId = mid,
+                        Price = db.Movies.Where(m => m.Id == mid).FirstOrDefault().Price
+
+                    });
+                }
+                    
                 db.Orders.Add(order);
                 db.SaveChanges();
 
                 //Save some stuff
-                OrderRow orderrows = new OrderRow();
+                /*OrderRow orderrows = new OrderRow();
                 foreach (var mid in lomi)
                 {
                     orderrows.OrderId = (from o in db.Orders where o.CustomerId == customerId select o.Id).FirstOrDefault();
@@ -118,7 +128,7 @@ namespace MovieShopDelta.Controllers
                     orderrows.Price = (from m in db.Movies where m.Id == mid select m.Price).FirstOrDefault();
                     db.OrderRows.Add(orderrows);
                     db.SaveChanges();
-                }
+                }*/
 
                 return View("ShoppingCart");
             }

@@ -52,7 +52,8 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-                @Html.ActionLink("BUY ME!", "ShoppingCart", "Customer", new { id = item.Id, @class = "btn btn-success" })
+                <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id }, null)'" />
+                <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id }, null)'" />
             </td>
         </tr>
        

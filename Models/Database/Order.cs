@@ -23,5 +23,10 @@ namespace MovieShopDelta.Models.Database
 
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderRow> OrderRows { get; set; }
+
+        public Order()
+        {
+            OrderRows = new List<OrderRow>();
+        }
     }
 }
