@@ -236,7 +236,6 @@
     <Content Include="Views\Home\_FiveNewestMovies.cshtml" />
     <Content Include="Views\Home\_FiveOldestMovies.cshtml" />
     <Content Include="Views\Home\_FiveCheapestMovies.cshtml" />
-    <Content Include="Views\Home\_MostExpensiveOrder.cshtml" />
     <Content Include="Views\Home\MostPopularMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
