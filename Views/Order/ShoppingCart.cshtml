@@ -1,0 +1,17 @@
+﻿@model MovieShopDelta.Models.Database.Customer
+
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+
+<h2>ShoppingCart</h2>
+
+@Html.Action("BoughtMovies")
+
+@using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.TextBoxFor(u => u.EmailAddress)
+    <input type="submit" value="Submit" />
+}
