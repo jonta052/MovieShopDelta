@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<MovieShopDelta.Models.Database.Movie>
-@{
-    ViewBag.Title = "ShoppingCart";
-}
 
-<h2>ShoppingCart</h2>
+
+@*@Html.Action("AddCustomer")*@
 
 <table class="table">
     <tr>
@@ -44,24 +42,13 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             @*<td>
-                @Html.ActionLink("BUY ME!", "ShoppingCart", "Customer", new { id = item.Id, @class = "btn btn-success" })
+            @Html.ActionLink("BUY ME!", "ShoppingCart", "Customer", new { id = item.Id, @class = "btn btn-success" })
 
-            </td>*@
+        </td>*@
+            
         </tr>
     }
 
+
 </table>
 
-
-
-
-
-
-
-
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="Check out" class="btn btn-success" />
-    </div>
-</div>

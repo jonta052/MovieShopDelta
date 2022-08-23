@@ -219,14 +219,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-
-    <Content Include="Views\Customer\ShoppingCart.cshtml" />
-    
+    <Content Include="Views\Order\AddCustomer.cshtml" />
+    <Content Include="Views\Order\BoughtMovies.cshtml" />
+    <Content Include="Views\Order\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    
-    <Folder Include="Views\Movie\" />
-
     <Content Include="Views\Movie\AddMovie.cshtml" />
     <Content Include="Views\Movie\AllMovies.cshtml" />
     <Content Include="Views\Movie\_AllMovies.cshtml" />
@@ -234,8 +231,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Customer\" />
-
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
