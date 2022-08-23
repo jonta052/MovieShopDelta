@@ -1,0 +1,37 @@
+﻿@model MovieShopDelta.Models.ViewModels.MostExpensiveOrderVM
+
+<hr />
+<br />
+<h2>Most popular movies</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SumOrder)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.FirstName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.LastName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.SumOrder)
+        </td>
+    </tr>
+
+</table>
+<br />
