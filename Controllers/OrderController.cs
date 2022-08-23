@@ -94,7 +94,7 @@ namespace MovieShopDelta.Controllers
             //Check if we have a customer id
             if (String.IsNullOrEmpty(customerId.ToString()) == false)
             {
-                return View("AddCustomer");
+                return RedirectToAction("AddCustomer", "Customer");
             }
             //Get movies customer wants to buy
             if (Session["MovieIds"] != null)
