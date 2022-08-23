@@ -139,11 +139,17 @@
     <Compile Include="Migrations\202208190916497_Creating D.designer.cs">
       <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208230847205_Update database.cs" />
+    <Compile Include="Migrations\202208230847205_Update database.designer.cs">
+      <DependentUpon>202208230847205_Update database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
     <Compile Include="Models\Database\Customer.cs" />
     <Compile Include="Models\Database\Movie.cs" />
     <Compile Include="Models\Database\Order.cs" />
+    <Compile Include="Models\ViewModels\MostExpensiveOrderVM.cs" />
+    <Compile Include="Models\ViewModels\MostPopularMoviesVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,15 +228,23 @@
     <Content Include="Views\Order\AddCustomer.cshtml" />
     <Content Include="Views\Order\BoughtMovies.cshtml" />
     <Content Include="Views\Order\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\MostExpensiveOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Movie\AddMovie.cshtml" />
     <Content Include="Views\Movie\AllMovies.cshtml" />
     <Content Include="Views\Movie\_AllMovies.cshtml" />
+    <Content Include="Views\Home\_MostPopularMovies.cshtml" />
+    <Content Include="Views\Home\_FiveNewestMovies.cshtml" />
+    <Content Include="Views\Home\_FiveOldestMovies.cshtml" />
+    <Content Include="Views\Home\_FiveCheapestMovies.cshtml" />
+    <Content Include="Views\Home\_MostExpensiveOrder.cshtml" />
+    <Content Include="Views\Home\MostPopularMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -240,6 +254,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202208190916497_Creating D.resx">
       <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208230847205_Update database.resx">
+      <DependentUpon>202208230847205_Update database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
