@@ -139,6 +139,10 @@
     <Compile Include="Migrations\202208240938352_testrob.designer.cs">
       <DependentUpon>202208240938352_testrob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208241148200_testzara.cs" />
+    <Compile Include="Migrations\202208241148200_testzara.designer.cs">
+      <DependentUpon>202208241148200_testzara.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
     <Compile Include="Models\Database\Customer.cs" />
@@ -247,6 +251,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202208240938352_testrob.resx">
       <DependentUpon>202208240938352_testrob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208241148200_testzara.resx">
+      <DependentUpon>202208241148200_testzara.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
