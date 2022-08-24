@@ -7,13 +7,13 @@ namespace MovieShopDelta.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CreatingD : IMigrationMetadata
+    public sealed partial class testrob : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatingD));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(testrob));
         
         string IMigrationMetadata.Id
         {
-            get { return "202208190916497_Creating D"; }
+            get { return "202208240938352_testrob"; }
         }
         
         string IMigrationMetadata.Source

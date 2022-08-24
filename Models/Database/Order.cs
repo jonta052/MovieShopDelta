@@ -8,7 +8,6 @@ namespace MovieShopDelta.Models.Database
 {
     public class Order
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]
@@ -17,11 +16,12 @@ namespace MovieShopDelta.Models.Database
 
         [Required] // added extra from the CodeFirstDemo.
         public int CustomerId { get; set; }
-        
-        /*[Required]
-        public Decimal OrderPrice { get; set; }*/
+
+        //[Required]
+        //public Decimal OrderPrice { get; set; }
 
         public virtual Customer Customer { get; set; }
+
         public virtual ICollection<OrderRow> OrderRows { get; set; }
 
         public Order()

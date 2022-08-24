@@ -135,13 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208190916497_Creating D.cs" />
-    <Compile Include="Migrations\202208190916497_Creating D.designer.cs">
-      <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208230847205_Update database.cs" />
-    <Compile Include="Migrations\202208230847205_Update database.designer.cs">
-      <DependentUpon>202208230847205_Update database.cs</DependentUpon>
+    <Compile Include="Migrations\202208240938352_testrob.cs" />
+    <Compile Include="Migrations\202208240938352_testrob.designer.cs">
+      <DependentUpon>202208240938352_testrob.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
@@ -249,11 +245,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208190916497_Creating D.resx">
-      <DependentUpon>202208190916497_Creating D.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208230847205_Update database.resx">
-      <DependentUpon>202208230847205_Update database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208240938352_testrob.resx">
+      <DependentUpon>202208240938352_testrob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
