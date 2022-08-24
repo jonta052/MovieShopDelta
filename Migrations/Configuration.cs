@@ -36,8 +36,8 @@
                 DeliveryZip = "56783",
                 EmailAddress = "adam@jones.com",
                 Phone = "567-145637156"
-            },new Models.Database.Customer
-            { 
+            }, new Models.Database.Customer
+            {
                 FirstName = "Brett",
                 LastName = "Vasquez",
                 BillingAddress = "Lantgatan 84",
@@ -47,9 +47,9 @@
                 DeliveryCity = "Ryd",
                 DeliveryZip = "73956",
                 EmailAddress = "brett@vasquez.com",
-                Phone = "985-123789654" 
-            },new Models.Database.Customer
-            { 
+                Phone = "985-123789654"
+            }, new Models.Database.Customer
+            {
                 FirstName = "Anna",
                 LastName = "Li",
                 BillingAddress = "Linggatan 5",
@@ -59,10 +59,11 @@
                 DeliveryCity = "Stockholm",
                 DeliveryZip = "65324",
                 EmailAddress = "anna@li.com",
-                Phone = "652-321678952" 
-            },new Models.Database.Customer
-            { 
-                FirstName = "David", LastName = "Eriksson",
+                Phone = "652-321678952"
+            }, new Models.Database.Customer
+            {
+                FirstName = "David",
+                LastName = "Eriksson",
                 BillingAddress = "Vasagatan 33",
                 BillingCity = "Helsingborg",
                 BillingZip = "95236",
@@ -70,9 +71,9 @@
                 DeliveryCity = "Helsingborg",
                 DeliveryZip = "95236",
                 EmailAddress = "david@eriksson.com",
-                Phone = "502-103204506" 
-            },new Models.Database.Customer
-            { 
+                Phone = "502-103204506"
+            }, new Models.Database.Customer
+            {
                 FirstName = "Paula",
                 LastName = "Lima",
                 BillingAddress = "Strutsgatan 99",
@@ -82,9 +83,9 @@
                 DeliveryCity = "Uppsala",
                 DeliveryZip = "72424",
                 EmailAddress = "paula@lima.com",
-                Phone = "021-584343926" 
+                Phone = "021-584343926"
             });
-            context.Movies.AddOrUpdate(m => m.Title, new Models.Database.Movie
+            context.Movies.AddOrUpdate(m => m.Id, new Models.Database.Movie
             {
                 Title = "Sallskapsresan",
                 Director = "Lasse Aberg",
@@ -161,13 +162,25 @@
             {
                 //Change OrderDate in Order model to only set
                 CustomerId = 1
-                
+
             }, new Models.Database.Order
             {
                 CustomerId = 2
             }, new Models.Database.Order
             {
                 CustomerId = 3
+            },
+            new Models.Database.Order
+            {
+                CustomerId = 4
+            },
+            new Models.Database.Order
+            {
+                CustomerId = 5
+            },
+            new Models.Database.Order
+            {
+                CustomerId = 6
             }
             );
             context.OrderRows.AddOrUpdate(c => c.Id, new Models.Database.OrderRow
