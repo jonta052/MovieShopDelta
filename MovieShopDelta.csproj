@@ -135,13 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208240938352_testrob.cs" />
-    <Compile Include="Migrations\202208240938352_testrob.designer.cs">
-      <DependentUpon>202208240938352_testrob.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208241148200_testzara.cs" />
-    <Compile Include="Migrations\202208241148200_testzara.designer.cs">
-      <DependentUpon>202208241148200_testzara.cs</DependentUpon>
+    <Compile Include="Migrations\202208251053548_zaratest.cs" />
+    <Compile Include="Migrations\202208251053548_zaratest.designer.cs">
+      <DependentUpon>202208251053548_zaratest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
@@ -249,11 +245,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208240938352_testrob.resx">
-      <DependentUpon>202208240938352_testrob.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208241148200_testzara.resx">
-      <DependentUpon>202208241148200_testzara.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208251053548_zaratest.resx">
+      <DependentUpon>202208251053548_zaratest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
