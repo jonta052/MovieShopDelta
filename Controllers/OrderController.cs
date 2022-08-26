@@ -27,13 +27,24 @@ namespace MovieShopDelta.Controllers
         {
             string listOfMovieIds = (string)Session["MovieIds"];
 
-            List<string> temp = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            temp.Remove(id.ToString());
+            // If trying to remove from an empty shopping cart, stay on the all movies list
+            if (listOfMovieIds == null)
+            {
+                return RedirectToAction("AllMovies", "Movie");
+            }
 
-            listOfMovieIds = String.Join(",", temp.ToArray());
-            Session["MovieIds"] = listOfMovieIds;
+            // Else, remove the item from the shopping cart
+            else
+            {
+                List<string> temp = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                temp.Remove(id.ToString());
+                listOfMovieIds = String.Join(",", temp.ToArray());
 
-            return RedirectToAction("AllMovies", "Movie");
+                Session["MovieIds"] = listOfMovieIds;
+
+                return RedirectToAction("AllMovies", "Movie");
+            }
+
         }
 
         //This page and view to be repaced
