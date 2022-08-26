@@ -35,7 +35,10 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult MostPopularMovies()
         {
+            // Joining tables
             var mostPopularMovies = db.Movies
+
+                // Joining Movies with OrderRows
                 .Join(db.OrderRows,
                 m => m.Id,
                 o => o.MovieId,
@@ -45,8 +48,10 @@ namespace MovieShopDelta.Controllers
                     Title = m.Title
                 })
                 
+                // Group data
                 .GroupBy(movie => movie.MovieId)
                 
+                // Select what data to use
                 .Select(obj => new MostPopularMoviesVM
                 {
                     MovieId = obj.Key,
@@ -54,10 +59,10 @@ namespace MovieShopDelta.Controllers
                     Title = obj.FirstOrDefault().Title,
                 })
                 
+                // Structuring
                 .OrderByDescending(count => count.Count)
-                
+                .ThenBy(title => title.Title)
                 .Take(5)
-                
                 .ToList();
 
             return PartialView(mostPopularMovies);
@@ -73,7 +78,10 @@ namespace MovieShopDelta.Controllers
             //                       .ToList();
 
             var fiveNewestMovies = db.Movies
+                .GroupBy(t => t.Title)
+                .Select(t => t.FirstOrDefault())
                 .OrderByDescending(y => y.ReleaseYear)
+                .ThenBy(title => title.Title)
                 .Take(5)
                 .ToList();
 
@@ -90,7 +98,10 @@ namespace MovieShopDelta.Controllers
             //                       .ToList();
 
             var fiveOldestMovies = db.Movies
+                .GroupBy(t => t.Title)
+                .Select(t => t.FirstOrDefault())
                 .OrderBy(y => y.ReleaseYear)
+                .ThenBy(title => title.Title)
                 .Take(5)
                 .ToList();
 
@@ -107,7 +118,10 @@ namespace MovieShopDelta.Controllers
             //           .ToList();
 
             var fiveCheapestMovies = db.Movies
+                .GroupBy(t => t.Title)
+                .Select(t => t.FirstOrDefault())
                 .OrderBy(p => p.Price)
+                .ThenBy(title => title.Title)
                 .Take(5)
                 .ToList();
 
@@ -117,6 +131,8 @@ namespace MovieShopDelta.Controllers
         public ActionResult MostExpensiveOrder()
         {
             var mostExpensiveOrder = db.Orders
+
+                // Joining Orders with OrderRows
                 .Join(db.OrderRows,
                 ord => ord.Id,
                 orderrow => orderrow.OrderId,
@@ -127,6 +143,7 @@ namespace MovieShopDelta.Controllers
                     CustomerId = ord1.CustomerId
                 })
 
+                // Joining Orders with Customers
                 .Join(db.Customers,
                 ord2 => ord2.CustomerId,
                 cust => cust.Id,
@@ -139,8 +156,10 @@ namespace MovieShopDelta.Controllers
                     LastName = cust.LastName
                 })
 
+                // Group data
                 .GroupBy(ordid => ordid.OrderId)
 
+                // Select what data to use
                 .Select(obj => new MostExpensiveOrderVM
                 {
                     FirstName = obj.FirstOrDefault().FirstName,
@@ -148,8 +167,8 @@ namespace MovieShopDelta.Controllers
                     SumOrder = obj.Sum(sum => sum.Price)
                 })
 
+                // Structuring
                 .OrderByDescending(sum => sum.SumOrder)
-
                 .FirstOrDefault();
 
             return PartialView(mostExpensiveOrder);
