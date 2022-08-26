@@ -30,7 +30,7 @@ namespace MovieShopDelta.Controllers
             {
                 db.Movies.Add(movie);
                 db.SaveChanges();
-                return RedirectToAction("AddMovie");
+                return RedirectToAction("AllMovies");
             }
             return View(movie);
         }
