@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MovieShopDelta.Models.Database;
 using MovieShopDelta.Data;
+using MovieShopDelta.Models.ViewModels;
 
 namespace MovieShopDelta.Controllers
 {
@@ -13,6 +14,39 @@ namespace MovieShopDelta.Controllers
         AppDbContext db = new AppDbContext();
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult CustomerOrders()
+        {
+            List<CustomerOrders> co = new List<CustomerOrders>();
+
+            co = db.Customers.Join(db.Orders,
+                                      c => c.Id,
+                                      o => o.CustomerId,
+                                     (c, o) => new 
+                                     {
+                                         Email = c.EmailAddress,
+                                         FirstName = c.FirstName,
+                                         LastName = c.LastName,
+                                         OrderDate = o.OrderDate
+
+                                     }).GroupBy(x => x.Email)
+                                     .Select(r => new CustomerOrders
+                                     { 
+                                         Count = r.Count(),
+                                         Email = r.FirstOrDefault().Email,
+                                         FirstName = r.FirstOrDefault().FirstName,
+                                         LastName = r.FirstOrDefault().LastName,
+                                         OrderDate = r.FirstOrDefault().OrderDate
+                                     }).ToList();/*.OrderByDescending(c => c.Email).ToList();*/
+           
+            return View(co);
+        }
+
+        public ActionResult CustomerOrderrows()
+        {
+
             return View();
         }
         public ActionResult AddCustomer()
