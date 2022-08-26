@@ -62,7 +62,8 @@ namespace MovieShopDelta.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("AddCustomer");
+                return RedirectToAction("ShoppingCart","Order");
+                //return RedirectToAction("AddCustomer");
             }
             return View(customer);
         }
