@@ -45,6 +45,7 @@ namespace MovieShopDelta.Controllers
         public ActionResult BoughtMovies()
         {
             List<Movie> shoppingList = new List<Movie>();
+
             if (Session["MovieIds"] != null)
             {
                 string listOfMovieIds = (string)Session["MovieIds"];
@@ -55,33 +56,47 @@ namespace MovieShopDelta.Controllers
                 {
                     shoppingList.Add(db.Movies.Find(mid));
                 }
+
+                // Send the list of movies to _AllMovies partial to be displayed
+                // on the ShoppingCart view (which gets this action)
+                // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
+
                 return PartialView(shoppingList);
+
             }
             else
             {
+                // Send the list of movies to _AllMovies partial to be displayed
+                // on the ShoppingCart view (which gets this action)
+                // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
+
                 return PartialView(shoppingList);
             }
         }
 
         public ActionResult ShoppingCart()
         {
-            List<Movie> shoppingList = new List<Movie>();
-            if (Session["MovieIds"] != null)
-            {
-                string listOfMovieIds = (string)Session["MovieIds"];
+            ///// LIST, AND IF-ELSE COULD POSSIBLY ME OMITTED AND JUST RETURN VIEW /////
+            //List<Movie> shoppingList = new List<Movie>();
 
-                List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+            //if (Session["MovieIds"] != null)
+            //{
+            //    string listOfMovieIds = (string)Session["MovieIds"];
 
-                foreach (var mid in lomi)
-                {
-                    shoppingList.Add(db.Movies.Find(mid));
-                }
-                return View();
-            }
-            else
-            {
-                return View();
-            }
+            //    List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+
+            //    foreach (var mid in lomi)
+            //    {
+            //        shoppingList.Add(db.Movies.Find(mid));
+            //    }
+            //    return View();
+            //}
+            //else
+            //{
+            //    return View();
+            //}
+
+            return View();
         }
 
         public ActionResult CheckOut(Customer customer)
@@ -89,13 +104,17 @@ namespace MovieShopDelta.Controllers
             var email = customer.EmailAddress;
             List<Customer> customerList = new List<Customer>();
             customerList = db.Customers.ToList();
+            
             //Get Customer Id
-            var customerId = (from c in customerList where c.EmailAddress == email select c.Id).FirstOrDefault();
+            var customerId = 0;
+            customerId = (from c in customerList where c.EmailAddress == email select c.Id).FirstOrDefault(); // Changed to lambda expression
+
             //Check if we have a customer id
-            if (String.IsNullOrEmpty(customerId.ToString()) == true)
+            if (customerId == 0)
             {
                 return RedirectToAction("AddCustomer", "Customer");
             }
+
             //Get movies customer wants to buy
             if (Session["MovieIds"] != null)
             {
