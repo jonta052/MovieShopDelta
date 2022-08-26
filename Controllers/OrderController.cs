@@ -35,6 +35,7 @@ namespace MovieShopDelta.Controllers
 
             return RedirectToAction("AllMovies", "Movie");
         }
+
         //This page and view to be repaced
         public ActionResult AddMovie(/*Movie movie*/)
         {
@@ -134,9 +135,11 @@ namespace MovieShopDelta.Controllers
 
                     });
                 }
-                    
+                
+                // Add and save order to the database, then clear the session
                 db.Orders.Add(order);
                 db.SaveChanges();
+                Session.Clear();
 
                 //Save some stuff
                 /*OrderRow orderrows = new OrderRow();
@@ -149,7 +152,7 @@ namespace MovieShopDelta.Controllers
                     db.SaveChanges();
                 }*/
 
-                return View("ShoppingCart");
+                return View("ConfirmationPage");
             }
             else
             {
