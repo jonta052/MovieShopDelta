@@ -19,7 +19,9 @@ namespace MovieShopDelta.Models.ViewModels
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+        public int OrderId { get; set; }
 
+        [Display(Name = "Orders")]
         public int Count { get; set; }  
 
     }
