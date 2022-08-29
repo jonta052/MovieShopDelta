@@ -133,9 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202208261259114_testzara.cs" />
-    <Compile Include="Migrations\202208261259114_testzara.designer.cs">
-      <DependentUpon>202208261259114_testzara.cs</DependentUpon>
+    <Compile Include="Migrations\202208290806425_createDB.cs" />
+    <Compile Include="Migrations\202208290806425_createDB.designer.cs">
+      <DependentUpon>202208290806425_createDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
@@ -247,8 +247,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208261259114_testzara.resx">
-      <DependentUpon>202208261259114_testzara.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208290806425_createDB.resx">
+      <DependentUpon>202208290806425_createDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
