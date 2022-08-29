@@ -10,30 +10,27 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">SFH</a>
+            @Html.ActionLink("SFH", "Index", "Home", null, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="~/Views/Shared/_Layout.cshtml">
-                            Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn navbar-item" })
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" @Html.ActionLink("List of Movies", "AllMovies", "Movie") />
-                            <a class="dropdown-item" @Html.ActionLink("Add Movie", "AddMovie", "Movie") />
+                            @Html.ActionLink("List of Movies", "AllMovies", "Movie", null, new { @class = "btn dropdown-item" })
+                            @Html.ActionLink("Add Movie", "AddMovie", "Movie", null, new { @class = "btn dropdown-item" })
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Orders</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item">@Html.ActionLink("Purchase History", "BoughtMovies", "Order")</a> @*Change bought movies here*@
-                            <a class="dropdown-item"> @Html.ActionLink("Shopping Cart", "ShoppingCart", "Order")</a>
+                            @Html.ActionLink("Purchase History", "BoughtMovies", "Order", null, new { @class = "btn dropdown-item" }) @*Change bought movies here*@
+                            @Html.ActionLink("Shopping Cart", "ShoppingCart", "Order", null, new { @class = "btn dropdown-item" })
                         </div>
                     </li>
                     <li class="nav-item">
@@ -44,14 +41,14 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-md-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
-                            <div class="dropdown-menu">
-                                 <a class="dropdown-item">@Html.ActionLink("Add Customer", "AddCustomer", "Customer")</a>
-                            </div>
-                        </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+                        <div class="dropdown-menu">
+                            @Html.ActionLink("Add Customer", "AddCustomer", "Customer", null, new { @class = "btn dropdown-item" })
+                        </div>
+                    </li>
                 </ul>
-                
+
             </div>
         </div>
     </nav>
