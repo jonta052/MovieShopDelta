@@ -28,11 +28,11 @@ namespace MovieShopDelta.Models.Database
         [Required]
         [StringLength(100)]
         [Display(Name = "Billing City")]
-
         public string BillingCity { get; set; }
+
         [Required]
         [StringLength(100)]
-        [Display(Name = "Billing Postal Code")]
+        [Display(Name = "Billing Zip")]
         public string BillingZip { get; set; }
 
         [Required]
@@ -43,12 +43,11 @@ namespace MovieShopDelta.Models.Database
         [Required]
         [StringLength(100)]
         [Display(Name = "Delivery City")]
-
         public string DeliveryCity { get; set; }
+
         [Required]
         [StringLength(100)]
-        [Display(Name = "Postal Code")]
-        //[DataType(DataType.PostalCode)]
+        [Display(Name = "Delivery Zip")]
         public string DeliveryZip { get; set; }
 
         [Required]
