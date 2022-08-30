@@ -211,6 +211,7 @@
     <Compile Include="Models\Database\Customer.cs" />
     <Compile Include="Models\Database\Movie.cs" />
     <Compile Include="Models\Database\Order.cs" />
+    <Compile Include="Models\ViewModels\BoughtMoviesVM.cs" />
     <Compile Include="Models\ViewModels\CustomerOrderRows.cs" />
     <Compile Include="Models\ViewModels\CustomerOrders.cs" />
     <Compile Include="Models\ViewModels\MostExpensiveOrderVM.cs" />
@@ -291,7 +292,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customer\AddCustomer.cshtml" />
-    <Content Include="Views\Order\BoughtMovies.cshtml" />
     <Content Include="Views\Order\ShoppingCart.cshtml" />
     <Content Include="Views\Home\MostExpensiveOrder.cshtml" />
     <Content Include="Views\Customer\CustomerOrders.cshtml" />
@@ -299,6 +299,7 @@
     <Content Include="Views\Customer\CustomerOrderrows.cshtml" />
     <Content Include="Views\Customer\CustomerOrder.cshtml" />
     <Content Include="Views\Customer\CustomerOrdersExpanded.cshtml" />
+    <Content Include="Views\Order\BoughtMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Movie\AddMovie.cshtml" />
