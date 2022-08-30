@@ -79,7 +79,7 @@ namespace MovieShopDelta.Controllers
                                      OrderId = r.FirstOrDefault().OrderId,
                                      OrderDate = r.FirstOrDefault().OrderDate
                                  }).ToList();/*.OrderByDescending(c => c.Email).ToList();*/
-
+                
             }
             else
             {
@@ -105,24 +105,19 @@ namespace MovieShopDelta.Controllers
                                  }).ToList();/*.OrderByDescending(c => c.Email).ToList();*/
 
             }
-
+            
             return PartialView(co);
         }
 
-        //Order Id + Order Date should take one order at a time
+        //Order Id + Order Date
         public ActionResult CustomerOrdersExpanded()
         {
             List<Order> expandedOrders = new List<Order>();
             var customerId = (int)Session["CustomerId"];
             //Select all orders belonging to a specific customer
             expandedOrders = (from o in db.Orders where o.CustomerId == customerId select o).ToList();
-            //if (Session["CustomerId"] == null) { return Content(""); }
-           //var orderid = expandedOrders.Select(u => u.Id).ToList();
-            Session["Orders"] = expandedOrders;
-            
-                return PartialView(expandedOrders);
-            
-                
+            Session["CustomerId"] = null;
+            return PartialView(expandedOrders);  
         }
         
             public ActionResult CustomerOrderrows(Order item)

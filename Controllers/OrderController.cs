@@ -19,7 +19,6 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult AddToCart(int? id, string thisAction, string thisController)
         {
-            //Session["MovieIds"] = Session["MovieIds"] + id.ToString() + ",";
             Session["MovieIds"] = Session["MovieIds"] +","+ id.ToString();
             return RedirectToAction(thisAction, thisController);
         }
@@ -46,14 +45,6 @@ namespace MovieShopDelta.Controllers
                 return RedirectToAction(thisAction, thisController);
             }
 
-        }
-
-       
-        //This page and view to be repaced
-        public ActionResult AddMovie(/*Movie movie*/)
-        {
-
-            return View(db.Movies.ToList());
         }
 
         public ActionResult BoughtMovies()
@@ -102,28 +93,9 @@ namespace MovieShopDelta.Controllers
             }
         }
 
+        //Only has textbox + Customer model that is sent to another view
         public ActionResult ShoppingCart()
         {
-            ///// LIST, AND IF-ELSE COULD POSSIBLY ME OMITTED AND JUST RETURN VIEW /////
-            //List<Movie> shoppingList = new List<Movie>();
-
-            //if (Session["MovieIds"] != null)
-            //{
-            //    string listOfMovieIds = (string)Session["MovieIds"];
-
-            //    List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
-
-            //    foreach (var mid in lomi)
-            //    {
-            //        shoppingList.Add(db.Movies.Find(mid));
-            //    }
-            //    return View();
-            //}
-            //else
-            //{
-            //    return View();
-            //}
-
             return View();
         }
 
@@ -159,7 +131,6 @@ namespace MovieShopDelta.Controllers
                     {
                         MovieId = mid,
                         Price = db.Movies.Where(m => m.Id == mid).FirstOrDefault().Price
-
                     });
                 }
                 
@@ -167,17 +138,6 @@ namespace MovieShopDelta.Controllers
                 db.Orders.Add(order);
                 db.SaveChanges();
                 Session.Clear();
-
-                //Save some stuff
-                /*OrderRow orderrows = new OrderRow();
-                foreach (var mid in lomi)
-                {
-                    orderrows.OrderId = (from o in db.Orders where o.CustomerId == customerId select o.Id).FirstOrDefault();
-                    orderrows.MovieId = mid;
-                    orderrows.Price = (from m in db.Movies where m.Id == mid select m.Price).FirstOrDefault();
-                    db.OrderRows.Add(orderrows);
-                    db.SaveChanges();
-                }*/
 
                 return View("ConfirmationPage");
             }
