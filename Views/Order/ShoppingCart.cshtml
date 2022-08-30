@@ -11,6 +11,6 @@
 {
     @Html.AntiForgeryToken()
 
-    @Html.TextBoxFor(u => u.EmailAddress)
+    @Html.EditorFor(u => u.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
     <input type="submit" value="Submit" />
 }

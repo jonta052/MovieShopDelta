@@ -91,7 +91,8 @@
                 Director = "Lasse Aberg",
                 ReleaseYear = 1980,
                 Genre = "Comedy",
-                Price = 130
+                Price = 130,
+                ImageURL = "https://m.media-amazon.com/images/M/MV5BYjc2YzNmZTEtYzU0Yy00MzE2LWFjNTEtNWI4ODVlOWEyNzFhXkEyXkFqcGdeQXVyMTQzMjU1NjE@._V1_.jpg"
 
             }, new Models.Database.Movie
             {
@@ -99,63 +100,72 @@
                 Director = "Christian Rivers",
                 ReleaseYear = 2018,
                 Genre = "Action",
-                Price = 175
+                Price = 175,
+                ImageURL = "https://m.media-amazon.com/images/M/MV5BNzY1MDA2OTQ0N15BMl5BanBnXkFtZTgwMTkzNjU2NTM@._V1_.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Godfather",
                 Director = "Francis Ford Coppola",
                 ReleaseYear = 1972,
                 Genre = "Drama",
-                Price = 187
+                Price = 187,
+                ImageURL = "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/7d2081c07a6afa338191e68c73e1959f7761b53cf9b691d59926aa0ef89874e5._RI_V_TTW_.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Shawshank Redemption",
                 Director = "Frank Darabont",
                 ReleaseYear = 1994,
                 Genre = "Drama",
-                Price = 163
+                Price = 163,
+                ImageURL = "https://m.media-amazon.com/images/I/71715eBi1sL._AC_SY879_.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Godfather: Part II",
                 Director = "Francis Ford Coppola",
                 ReleaseYear = 1974,
                 Genre = "Drama",
-                Price = 180
+                Price = 180,
+                ImageURL = "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
             }, new Models.Database.Movie
             {
                 Title = "12 Angry Men",
                 Director = "Sidney Lumet",
                 ReleaseYear = 1957,
                 Genre = "Crime",
-                Price = 130
+                Price = 130,
+                ImageURL = "https://i.ytimg.com/vi/J61XJhYiUpg/movieposter.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Lord of the Rings",
                 Director = "Peter Jackson",
                 ReleaseYear = 2003,
                 Genre = "Adventure",
-                Price = 98
+                Price = 98,
+                ImageURL = "https://static.posters.cz/image/750/poster/lord-of-the-rings-fellowship-i11723.jpg"
             }, new Models.Database.Movie
             {
                 Title = "Forest Gump",
                 Director = "Sidney Lumet",
                 ReleaseYear = 1994,
                 Genre = "Romance",
-                Price = 164
+                Price = 164,
+                ImageURL = "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Forrest_Gump_poster.jpg/220px-Forrest_Gump_poster.jpg"
             }, new Models.Database.Movie
             {
                 Title = "Inception",
                 Director = "Christopher Nolan",
                 ReleaseYear = 2010,
                 Genre = "Sci-fi",
-                Price = 167
+                Price = 167,
+                ImageURL = "https://m.media-amazon.com/images/M/MV5BMjExMjkwNTQ0Nl5BMl5BanBnXkFtZTcwNTY0OTk1Mw@@._V1_.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Matrix",
                 Director = "Wachowski Sisters",
                 ReleaseYear = 1999,
                 Genre = "Action",
-                Price = 144
+                Price = 144,
+                ImageURL = "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
             }
             );
             context.Orders.AddOrUpdate(c => c.Id, new Models.Database.Order

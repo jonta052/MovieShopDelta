@@ -27,6 +27,10 @@ namespace MovieShopDelta.Models.Database
         [DataType(DataType.Currency)]
         public Decimal Price { get; set; }
 
+        [Required]
+        [Display]
+        public string ImageURL { get; set; }
+
         public virtual ICollection<OrderRow> OrderRows { get; set; }
     }
 }
