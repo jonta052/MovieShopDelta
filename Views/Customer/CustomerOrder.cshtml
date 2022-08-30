@@ -7,12 +7,13 @@
 <h2>Customer Orders</h2>
 <br />
 <br />
+<p><i>Please enter a valid email address to view that customers orders</i></p>
 @using (Html.BeginForm("CustomerOrder", "Customer", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
-    @Html.TextBoxFor(c => c.EmailAddress)
-    <input type="submit" value="Submit" />
+    @Html.EditorFor(c => c.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
+    
+    <input class="btn btn-success" type="submit" value="Submit" />
 }
 <br />
 <br />
