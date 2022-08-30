@@ -2,60 +2,55 @@
 @model IEnumerable<MovieShopDelta.Models.Database.Movie>
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Movie List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Director)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseYear)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Genre)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseYear)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
-                <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
-            </td>
-        </tr>
-
-
-    }
-</table>
+<br />
+<br />
+<br />
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width="350" height="450" />
+            </div>
+            <table class="col-md">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Director</th>
+                        <th>Release Year</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Director)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseYear)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
+                            <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+}
