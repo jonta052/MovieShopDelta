@@ -130,26 +130,7 @@ namespace MovieShopDelta.Controllers
             var orderId = item.Id;
             List<CustomerOrderRows> cor = new List<CustomerOrderRows>();
             IQueryable<Order> orderItem = (from o in db.Orders where o.Id == orderId select o);
-            /*cor = db.OrderRows.
-                GroupJoin(db.Orders,
-                or => or.OrderId,
-                o => o.Id,
-                (or, o) => new { or, o }).
-
-                Join(db.Movies,
-                m => m.or.MovieId,
-                c => c.Id, (m, c) => new { m, c }).
-
-                Select(x => new CustomerOrderRows
-                {
-                    OrderId = x.m.o.Select(y => y.Id).FirstOrDefault(),
-                    OrderDate = x.m.o.Select(y => y.OrderDate).FirstOrDefault(),
-                    Title = x.c.Title,
-                    Price = x.c.Price
-                    // Sum = x.c.Price
-                })
-                .ToList();*/
-            //var listOfOrders = (List<Order>)Session["Orders"];
+            
             cor = orderItem.
                 Join(db.OrderRows,
                 o => o.Id,
@@ -167,7 +148,7 @@ namespace MovieShopDelta.Controllers
                     Title = x.c.Title,
                     Price = x.c.Price
                     // Sum = x.c.Price
-                })/*.GroupBy(o => new { o.OrderId, o.OrderDate }).
+                }).OrderBy(t => t.Title)/*.GroupBy(o => new { o.OrderId, o.OrderDate }).
                 Select(o => o.FirstOrDefault())*/
                 .ToList();
 

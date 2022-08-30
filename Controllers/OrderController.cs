@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MovieShopDelta.Models.Database;
 using MovieShopDelta.Data;
+using MovieShopDelta.Models.ViewModels;
 
 namespace MovieShopDelta.Controllers
 {
@@ -16,21 +17,21 @@ namespace MovieShopDelta.Controllers
             return View();
         }
 
-        public ActionResult AddToCart(int? id)
+        public ActionResult AddToCart(int? id, string thisAction, string thisController)
         {
-            Session["MovieIds"] = Session["MovieIds"] + id.ToString() + ",";
-
-            return RedirectToAction("AllMovies", "Movie");
+            //Session["MovieIds"] = Session["MovieIds"] + id.ToString() + ",";
+            Session["MovieIds"] = Session["MovieIds"] +","+ id.ToString();
+            return RedirectToAction(thisAction, thisController);
         }
 
-        public ActionResult RemFromCart(int? id)
+        public ActionResult RemFromCart(int? id, string thisAction, string thisController)
         {
             string listOfMovieIds = (string)Session["MovieIds"];
 
             // If trying to remove from an empty shopping cart, stay on the all movies list
             if (listOfMovieIds == null)
             {
-                return RedirectToAction("AllMovies", "Movie");
+                return RedirectToAction(thisAction, thisController);
             }
 
             // Else, remove the item from the shopping cart
@@ -42,11 +43,12 @@ namespace MovieShopDelta.Controllers
 
                 Session["MovieIds"] = listOfMovieIds;
 
-                return RedirectToAction("AllMovies", "Movie");
+                return RedirectToAction(thisAction, thisController);
             }
 
         }
 
+       
         //This page and view to be repaced
         public ActionResult AddMovie(/*Movie movie*/)
         {
@@ -56,7 +58,8 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult BoughtMovies()
         {
-            List<Movie> shoppingList = new List<Movie>();
+            List<BoughtMoviesVM> shoppingList = new List<BoughtMoviesVM>();
+            List<Movie> selectedMovies = new List<Movie>();
 
             if (Session["MovieIds"] != null)
             {
@@ -66,8 +69,21 @@ namespace MovieShopDelta.Controllers
 
                 foreach (var mid in lomi)
                 {
-                    shoppingList.Add(db.Movies.Find(mid));
+                    selectedMovies.Add(db.Movies.Find(mid));
                 }
+
+                shoppingList = selectedMovies.GroupBy(mmid => mmid.Id).Select(m => new BoughtMoviesVM
+                {
+                    Id = m.FirstOrDefault().Id,
+                    Price = m.Sum(x => x.Price),
+                    Title = m.FirstOrDefault().Title,
+                    Quantity = m.Count()
+                }).ToList();
+
+                /*foreach (var mid in lomi)
+                {
+                    shoppingList.Add(db.Movies.Find(mid));
+                }*/
 
                 // Send the list of movies to _AllMovies partial to be displayed
                 // on the ShoppingCart view (which gets this action)
