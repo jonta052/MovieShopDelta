@@ -3,7 +3,7 @@
 @if (Model.Count() == 0)
 {
     <br />
-    <h3>Your shopping cart is empty</h3>
+    <h4 class="text-danger"><i>Your shopping cart is empty!</i></h4>
 }
 else
 {
@@ -17,6 +17,8 @@ else
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
         </th>
 
     </tr>
@@ -43,5 +45,4 @@ else
     }
 
 </table>
-<p><i>Please enter your email address to complete the purchase</i></p>
 }
