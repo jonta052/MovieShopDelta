@@ -1,21 +1,25 @@
 ﻿@model MovieShopDelta.Models.Database.Customer
 
 @{
-    ViewBag.Title = "CustomerOrder";
+    ViewBag.Title = "Customer Order";
 }
 
 <h2>Customer Orders</h2>
+<hr />
 <br />
 <br />
-<p><i>Please enter a valid email address to view that customers orders</i></p>
+
 @using (Html.BeginForm("CustomerOrder", "Customer", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
-    @Html.EditorFor(c => c.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
-    
-    <input class="btn btn-success" type="submit" value="Submit" />
+    <div class="row" style="margin-left: 2px">
+        @Html.AntiForgeryToken()
+        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "email@example.com", style = "max-width: 280px" } })
+        &ensp;
+        <button type="submit" value="create" class="btn btn-success" style="width:110px">Find orders</button>
+    </div>
+    <p class="text-muted" style="margin-left: 4px; margin-top: 4px"><i>Enter a customer's email address to display all it's orders</i></p>
 }
-<br />
+
 <br />
 @Html.Action("CustomerOrders")
 
