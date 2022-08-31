@@ -13,7 +13,7 @@ namespace MovieShopDelta.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202208301327177_initial"; }
+            get { return "202208310747030_initial"; }
         }
         
         string IMigrationMetadata.Source
