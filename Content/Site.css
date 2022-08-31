@@ -28,3 +28,11 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+.border-allmovie {
+    border-bottom: solid;
+    border-color: #bcbcbc;
+    border-width: 1px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
