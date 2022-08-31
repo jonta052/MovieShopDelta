@@ -1,0 +1,16 @@
+﻿@model MovieShopDelta.Models.Database.Movie
+@{
+    ViewBag.Title = "All Movies";
+}
+
+<br />
+@using (Html.BeginForm("AllMovies", "Movie", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(u => u.Title, new { htmlAttributes = new { placeholder = "email@example.com" } })
+    <input class="btn btn-success" type="submit" value="Submit" />
+}
+<div>
+    @Html.Action("AllMovies");
+</div>
+
