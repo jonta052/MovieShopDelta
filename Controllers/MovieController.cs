@@ -24,7 +24,7 @@ namespace MovieShopDelta.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddMovie([Bind(Include = "Id,Title,Director,ReleaseYear,Genre,Price")] Movie movie)
+        public ActionResult AddMovie([Bind(Include = "Id,Title,Director,ReleaseYear,Genre,Price,ImageURL")] Movie movie)
         {
             if (ModelState.IsValid)
             {
