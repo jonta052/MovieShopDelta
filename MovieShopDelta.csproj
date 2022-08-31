@@ -217,6 +217,7 @@
     <Compile Include="Models\ViewModels\CustomerOrders.cs" />
     <Compile Include="Models\ViewModels\MostExpensiveOrderVM.cs" />
     <Compile Include="Models\ViewModels\MostPopularMoviesVM.cs" />
+    <Compile Include="Models\ViewModels\MovieQuantityVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +302,7 @@
     <Content Include="Views\Customer\CustomerOrder.cshtml" />
     <Content Include="Views\Customer\CustomerOrdersExpanded.cshtml" />
     <Content Include="Views\Order\BoughtMovies.cshtml" />
+    <Content Include="Views\Movie\AllTheMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Movie\AddMovie.cshtml" />
