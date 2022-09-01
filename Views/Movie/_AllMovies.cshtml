@@ -75,6 +75,7 @@
         </div>
     </div>
 }
+<br />
     @if (Model.Count() == 1)
     {
         <input type="button" value="Return" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { thisAction = "Nollare", thisController = "Movie" }, null)'" />
