@@ -125,7 +125,7 @@
                 ReleaseYear = 1974,
                 Genre = "Drama",
                 Price = 180,
-                ImageURL = "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+                ImageURL = "https://i.pinimg.com/originals/4e/3f/41/4e3f41bab342202c89c677305ef4071c.jpg"
             }, new Models.Database.Movie
             {
                 Title = "12 Angry Men",
@@ -157,7 +157,7 @@
                 ReleaseYear = 2010,
                 Genre = "Sci-fi",
                 Price = 167,
-                ImageURL = "https://m.media-amazon.com/images/M/MV5BMjExMjkwNTQ0Nl5BMl5BanBnXkFtZTcwNTY0OTk1Mw@@._V1_.jpg"
+                ImageURL = "https://img.fruugo.com/product/6/42/99800426_max.jpg"
             }, new Models.Database.Movie
             {
                 Title = "The Matrix",
@@ -165,7 +165,7 @@
                 ReleaseYear = 1999,
                 Genre = "Action",
                 Price = 144,
-                ImageURL = "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
+                ImageURL = "https://image.posterlounge.se/images/l/1905183.jpg"
             }
             );
             context.Orders.AddOrUpdate(c => c.Id, new Models.Database.Order
