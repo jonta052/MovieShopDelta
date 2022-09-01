@@ -2,7 +2,7 @@
 
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <b>@Html.DisplayNameFor(model => model.Title)</b>
     </div>
     <div class="col-sm-4">
@@ -13,22 +13,27 @@
 @foreach (var item in Model)
 {
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             @Html.DisplayFor(modelItem => item.Title)
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             @Html.DisplayFor(modelItem => item.Price)
         </div>
     </div>
+    <br />
 }
 
-<div class="row">
-    <div class="col-sm-4">
+<div class="row" style="margin-top: 8px">
+    <div class="col-sm-3">
         <b>Total Price</b>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <b>@Model.Sum(u => u.Price) kr</b>
     </div>
 </div>
-<hr />
+<br />
+<br />
+<br />
+<br />
+@*<hr />*@
 

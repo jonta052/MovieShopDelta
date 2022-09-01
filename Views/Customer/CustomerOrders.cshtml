@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<MovieShopDelta.Models.ViewModels.CustomerOrders>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <b>@Html.DisplayNameFor(model => model.Email)</b>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <b>@Html.DisplayNameFor(model => model.Count)</b>
         </div>
         
@@ -13,11 +13,11 @@
     @foreach (var item in Model)
     {
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 @Html.DisplayFor(modelItem => item.Email)
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 @Html.DisplayFor(modelItem => item.Count)
             </div>
         </div>
@@ -28,8 +28,7 @@
             }
         </tr>*@
     }
-<hr />
 @if (Model.Count() == 1)
-    {
+{
         @Html.Action("CustomerOrdersExpanded")
-    }
+}

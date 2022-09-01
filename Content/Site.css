@@ -29,10 +29,18 @@ textarea {
     border-color: #fff
 }
 
-.border-allmovie {
+.border-allmovie
+{
     border-bottom: solid;
     border-color: #bcbcbc;
     border-width: 1px;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.border-customerorder {
+    border-bottom: solid;
+    border-color: #bcbcbc;
+    border-width: 1px;
+    padding-bottom: 20px;
 }
