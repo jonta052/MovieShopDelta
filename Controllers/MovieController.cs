@@ -82,8 +82,14 @@ namespace MovieShopDelta.Controllers
             if (movieTitle != "")
             {
                 movieId = db.Movies.Where(m => m.Title == movieTitle).Select(x => x.Id).FirstOrDefault();
-
-                moviesToDisplay.Add(db.Movies.Find(movieId));
+                if (movieId != 0)
+                {
+                    moviesToDisplay.Add(db.Movies.Find(movieId));
+                }
+                else
+                {
+                    moviesToDisplay = db.Movies.ToList();
+                }
             }
             else
             {

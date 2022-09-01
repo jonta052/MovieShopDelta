@@ -7,13 +7,17 @@
 <hr />
 @using (Html.BeginForm("AllTheMovies", "Movie", FormMethod.Post))
 {
+<div class="row" style="margin-left: 2px">
     @Html.AntiForgeryToken()
-    @Html.EditorFor(u => u.Title, new { htmlAttributes = new { placeholder = "email@example.com" } })
-
-    
-    <input class="btn btn-success" type="submit" value="Submit" />
+    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Movie Title", style = "max-width: 280px" } })
+    &ensp;
+    <button type="submit" value="create" class="btn btn-success" style="width:80px">Search</button>
+</div>
+<p class="text-muted" style="margin-left: 4px; margin-top: 4px"><i>Enter a movie title to search for</i></p>
 }
+
+
 <div>
-    @Html.Action("AllMovies");
+    @Html.Action("AllMovies")
 </div>
 
