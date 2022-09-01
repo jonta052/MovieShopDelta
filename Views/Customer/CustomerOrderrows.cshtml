@@ -1,39 +1,39 @@
 ﻿@model IEnumerable<MovieShopDelta.Models.ViewModels.CustomerOrderRows>
 
-
-<div class="row">
+@*<div style="padding-left:10px">*@
     <div class="col-sm-3">
         <b>@Html.DisplayNameFor(model => model.Title)</b>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <b>@Html.DisplayNameFor(model => model.Price)</b>
     </div>
-</div>
 
-@foreach (var item in Model)
-{
-    <div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="row" style="padding-bottom:8px">
+            <div class="col-sm-3">
+                @Html.DisplayFor(modelItem => item.Title)
+            </div>
+            <div class="col-sm-3">
+                @Html.DisplayFor(modelItem => item.Price)
+            </div>
+        </div>
+    }
+
+
+    <div class="row" style="margin-top: 15px">
         <div class="col-sm-3">
-            @Html.DisplayFor(modelItem => item.Title)
+            <b>Total Price</b>
         </div>
         <div class="col-sm-3">
-            @Html.DisplayFor(modelItem => item.Price)
+            <b>@Model.Sum(u => u.Price) kr</b>
         </div>
     </div>
-    <br />
-}
+@*</div>*@
 
-<div class="row" style="margin-top: 8px">
-    <div class="col-sm-3">
-        <b>Total Price</b>
-    </div>
-    <div class="col-sm-3">
-        <b>@Model.Sum(u => u.Price) kr</b>
-    </div>
-</div>
+
 <br />
 <br />
 <br />
 <br />
-@*<hr />*@
 
