@@ -1,6 +1,9 @@
-﻿body {
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url(https://wallpapercave.com/wp/ToYo4Ig.jpg);
+    background-attachment: fixed;
+    margin: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -67,4 +70,9 @@ textarea {
     padding-top: 10px;
     border-color: dimgrey;
     background-color: #383434;
+    
+.carousel-inner > .item > img {
+    width: 440px;
+    height: 160px;
+    object-fit: contain;
 }

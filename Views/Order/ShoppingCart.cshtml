@@ -12,7 +12,9 @@
 
 <br />
 <br />
-@using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
+@if (ViewBag.HasMovieId == true)
+{
+using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
 {
     <div class="row" style="margin-left: 2px">
         @Html.AntiForgeryToken()
@@ -25,3 +27,5 @@
     @*@Html.EditorFor(u => u.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
         <input class="btn btn-success" type="submit" value="Submit" />*@
 }
+}
+
