@@ -44,3 +44,27 @@ textarea {
     border-width: 1px;
     padding-bottom: 20px;
 }
+
+.order-box {
+    background-color: #385c7c;
+    margin-block-end: 40px;
+    padding: 20px;
+    max-width: 700px;
+}
+
+#grad {
+    background-image: linear-gradient(#1e2f3e, #89a2b7);
+    background-repeat: no-repeat;
+}
+
+.footer-fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    border-top: solid 1px;
+    padding-top: 10px;
+    border-color: dimgrey;
+    background-color: #383434;
+}
