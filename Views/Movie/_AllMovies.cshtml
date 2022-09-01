@@ -3,11 +3,9 @@
 
 @{
     ViewBag.Title = "Movie List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<br />
-<br />
+
 @foreach (var item in Model)
 {
     <div class="container">
@@ -66,8 +64,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
-                            <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id, thisAction = "AllMovies", thisController = "Movie" }, null)'" />
+                            <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllTheMovies", thisController = "Movie" }, null)'" />
+                            <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id, thisAction = "AllTheMovies", thisController = "Movie" }, null)'" />
                             &nbsp;&nbsp;&nbsp;
                             <span><strong>@Html.DisplayFor(modelItem => item.Quantity)</strong></span>
                         </td>
@@ -77,3 +75,7 @@
         </div>
     </div>
 }
+    @if (Model.Count() == 1)
+    {
+        <input type="button" value="Return" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { thisAction = "Nollare", thisController = "Movie" }, null)'" />
+    }

@@ -96,6 +96,7 @@ namespace MovieShopDelta.Controllers
         //Only has textbox + Customer model that is sent to another view
         public ActionResult ShoppingCart()
         {
+            ViewBag.HasMovieId = Session["MovieIds"] != null;
             return View();
         }
 

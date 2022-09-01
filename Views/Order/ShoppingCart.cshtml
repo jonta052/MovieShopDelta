@@ -5,15 +5,14 @@
 }
 
 <h2>ShoppingCart</h2>
-         
+
 @Html.Action("BoughtMovies")
-
-@using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
+@if (ViewBag.HasMovieId == true)
 {
-    @Html.AntiForgeryToken()
-    @Html.EditorFor(u => u.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
-    <input class="btn btn-success" type="submit" value="Submit" />
+    using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.EditorFor(u => u.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
+        <input class="btn btn-success" type="submit" value="Submit" />
+    }
 }
-<style>
-
-</style>
