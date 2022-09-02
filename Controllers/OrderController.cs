@@ -113,7 +113,7 @@ namespace MovieShopDelta.Controllers
             //Check if we have a customer id
             if (customerId == 0)
             {
-                return RedirectToAction("AddCustomer", "Customer");
+                return RedirectToAction("AddCustomer", "Customer", new {choice = 1});
             }
 
             //Get movies customer wants to buy
