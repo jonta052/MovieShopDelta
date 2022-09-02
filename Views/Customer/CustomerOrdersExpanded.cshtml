@@ -5,30 +5,64 @@
 <h4>Orders made</h4>
 <hr />
 <br />
-
 @foreach (var item in Model)
 {
-    <div class="row">
-        <div class="col-sm-3">
-            <b>Order Date</b>
+    
+        <div class="col-sm-7" style="background-color: rgba(56, 92, 124, 0.6); border-radius: 25px; padding-left: 18px; margin-left: 4px ">
+            <div class="row">
+                <div class="row" style="padding-top:20px">
+                    <div class="col-sm-5" style="margin-left:1px">
+                        <b>Order Date</b>
+                    </div>
+                    <div class="col-sm-4" style="margin-left:-8px">
+                        <b>Order Id</b>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-5 border-customerorder">
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </div>
+                    <div class="col-sm-4 border-customerorder" style="margin-left:-8px">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    @if (item != null)
+                    {
+                        @Html.Action("CustomerOrderRows", item)
+                    }
+                </div>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <b>Order Id</b>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3 border-customerorder">
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </div>
-        <div class="col-sm-3 border-customerorder">
-            @Html.DisplayFor(modelItem => item.Id)
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        @if (item != null)
+        <br />
+    }
+
+    @*@foreach (var item in Model)
         {
-            @Html.Action("CustomerOrderRows", item)
-        }
-    </div>
-}
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Order Date</b>
+                </div>
+                <div class="col-sm-3">
+                    <b>Order Id</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 border-customerorder">
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </div>
+                <div class="col-sm-3 border-customerorder">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                @if (item != null)
+                {
+                    @Html.Action("CustomerOrderRows", item)
+                }
+            </div>
+        }*@
