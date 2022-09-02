@@ -16,6 +16,11 @@ namespace MovieShopDelta.Controllers
             return View();
         }
 
+        public ActionResult MovieCatalogue()
+        {
+
+            return View(db.Movies.ToList().OrderBy(m => m.Title));
+        }
         public ActionResult AddMovie()
         {
             return View();
@@ -28,7 +33,7 @@ namespace MovieShopDelta.Controllers
             {
                 db.Movies.Add(movie);
                 db.SaveChanges();
-                return RedirectToAction("AllMovies");
+                return RedirectToAction("AllTheMovies");
             }
             return View(movie);
         }
@@ -136,7 +141,7 @@ namespace MovieShopDelta.Controllers
                     Price = m.FirstOrDefault().Price,
                     ImageURL = m.FirstOrDefault().ImageURL,
                     Quantity = m.Count() - 1
-                }).ToList();
+                }).OrderBy(m => m.Title).ToList();
 
                 /*foreach (var mid in lomi)
                 {
@@ -162,11 +167,11 @@ namespace MovieShopDelta.Controllers
                     Price = m.FirstOrDefault().Price,
                     ImageURL = m.FirstOrDefault().ImageURL,
                     Quantity = m.Count() - 1
-                }).ToList();
-
+                }).OrderBy(m => m.Title).ToList();
+                
                 //return View("AllTheMovies", movieList);
                 return PartialView("_AllMovies", movieList);
-
+                
             }
             //var movieList = db.Movies.ToList();
             //return PartialView("_AllMovies",movieList);
