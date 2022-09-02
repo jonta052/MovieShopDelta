@@ -155,15 +155,20 @@ namespace MovieShopDelta.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCustomer([Bind(Include = "Id,FirstName,LastName,BillingAddress,BillingCity,BillingZip,DeliveryAddress,DeliveryCity,DeliveryZip,Phone,EmailAddress")] Customer customer)
+        public ActionResult AddCustomer([Bind(Include = "Id,FirstName,LastName,BillingAddress,BillingCity,BillingZip,DeliveryAddress,DeliveryCity,DeliveryZip,Phone,EmailAddress")] Customer customer, int? choice)
         {
             //Redirect if user from checkout
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("ShoppingCart", "Order");
-                //return RedirectToAction("AddCustomer");
+
+                if (choice == 1)
+                {
+                    return RedirectToAction("ShoppingCart", "Order");
+                }
+                
+                return RedirectToAction("AddCustomer");
             }
             return View(customer);
         }
