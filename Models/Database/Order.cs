@@ -14,11 +14,8 @@ namespace MovieShopDelta.Models.Database
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
-        [Required] // added extra from the CodeFirstDemo.
+        [Required]
         public int CustomerId { get; set; }
-
-        //[Required]
-        //public Decimal OrderPrice { get; set; }
 
         public virtual Customer Customer { get; set; }
 
