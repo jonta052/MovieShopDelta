@@ -306,6 +306,7 @@
     <Content Include="Views\Order\BoughtMovies.cshtml" />
     <Content Include="Views\Movie\AllTheMovies.cshtml" />
     <Content Include="Views\Home\_MostPopularMovieImages.cshtml" />
+    <Content Include="Views\Movie\MovieCatalogue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Movie\AddMovie.cshtml" />

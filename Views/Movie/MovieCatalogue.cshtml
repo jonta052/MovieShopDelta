@@ -1,0 +1,75 @@
+﻿
+@model IEnumerable<MovieShopDelta.Models.Database.Movie>
+
+@{
+    ViewBag.Title = "Movie List";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movie Catalogue</h2>
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 border-allmovie">
+                <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="Movie image" width="150" height="200" />
+            </div>
+            <div class="col-sm-2 border-allmovie">
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Director)</th>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.ReleaseYear)</th>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Genre)</th>
+                    </tr>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    </tr>
+                    <tr>
+                        <th>Add to cart</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4 border-allmovie">
+                <table>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Director)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseYear)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<br />
+@if (Model.Count() == 1)
+{
+    <input type="button" value="Return" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { thisAction = "Nollare", thisController = "Movie" }, null)'" />
+}

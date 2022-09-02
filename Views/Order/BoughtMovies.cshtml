@@ -7,7 +7,7 @@
 }
 else
 {
-    <table class="table">
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -22,7 +22,6 @@ else
         </th>
 
     </tr>
- 
 
     @foreach (var item in Model)
     {
@@ -42,6 +41,13 @@ else
             </td>
         </tr>
     }
-
+<tr>
+    <td><b>Total Price: </b></td>
+    <td><b>@Model.Sum(p => p.Price) kr</b></td>
+    <td></td>
+    <td></td>
+</tr>
 </table>
+    
+    
 }

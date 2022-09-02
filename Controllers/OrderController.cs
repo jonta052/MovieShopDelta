@@ -79,7 +79,7 @@ namespace MovieShopDelta.Controllers
                 // Send the list of movies to _AllMovies partial to be displayed
                 // on the ShoppingCart view (which gets this action)
                 // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
-
+                //ViewBag.TotalPrice = 
                 return PartialView(shoppingList);
 
             }
