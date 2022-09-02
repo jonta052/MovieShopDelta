@@ -23,9 +23,6 @@ using (Html.BeginForm("CheckOut", "Order", FormMethod.Post))
         <button type="submit" value="create" class="btn btn-success" style="width:80px">Create</button>
     </div>
     <p style="margin-left: 4px; margin-top: 4px"><i>Enter email address to place the order</i></p>
-
-    @*@Html.EditorFor(u => u.EmailAddress, new { htmlAttributes = new { placeholder = "email@example.com" } })
-        <input class="btn btn-success" type="submit" value="Submit" />*@
 }
 }
 

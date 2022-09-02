@@ -18,10 +18,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Genre)
         </th>
-
-        @*<th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -42,10 +38,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
-
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>*@
         </tr>
     }
 </table>
