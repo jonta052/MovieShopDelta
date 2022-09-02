@@ -21,7 +21,7 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Requesting Movies and Gift Cards";
 
             return View();
         }
