@@ -16,16 +16,19 @@ namespace MovieShopDelta.Controllers
             return View();
         }
 
+        // List of all movies and its info from the database
         public ActionResult MovieCatalogue()
         {
-
             return View(db.Movies.ToList().OrderBy(m => m.Title));
         }
+
+        // Creates form to add movie to database
         public ActionResult AddMovie()
         {
             return View();
         }
 
+        // Creates form to add movie to database
         [HttpPost]
         public ActionResult AddMovie([Bind(Include = "Id,Title,Director,ReleaseYear,Genre,Price,ImageURL")] Movie movie)
         {
@@ -38,35 +41,55 @@ namespace MovieShopDelta.Controllers
             return View(movie);
         }
 
+        // Connected to return button in all movies view
+        // When pressing reset it shows all the movies instead of one selected
         public ActionResult Nollare()
         {
             Session["movieTitle"] = null;
             return RedirectToAction("AllTheMovies");
         }
 
-        public ActionResult AllTheMovies() { return View(); }
+        // Creates page to buy movies from
+        public ActionResult AllTheMovies() 
+        { 
+            return View(); 
+        }
+
+        // Creates page to buy movies from
         [HttpPost]
         public ActionResult AllTheMovies(Movie chosenMovie)
         {
-            //From Search box
+            ///// Search box /////
+
+            // If no title is entered in the search box,
+            // then display all movies
             if (chosenMovie.Title == null)
             {
                 return View();
             }
+
+            // If a title IS entered in search box send that one to the view
             else
             {
                 return View(chosenMovie);
             }
         }
 
+        // Displays the list of movies on the page where one can buy them
+        // and includes add to cart buttons
         public ActionResult AllMovies(Movie chosenMovie)
         {
             //List to send to view
             List<MovieQuantityVM> movieList = new List<MovieQuantityVM>();
+
+
             //Movies user has selected to buy
             List<Movie> selectedMovies = new List<Movie>();
-            //List basicly gets one or all movies
+
+
+            //List gets one or all movies
             List<Movie> moviesToDisplay = new List<Movie>();
+
 
             //User has chosen movie title via textbox
             if (chosenMovie.Title != null)
@@ -74,17 +97,27 @@ namespace MovieShopDelta.Controllers
                 Session["movieTitle"] = chosenMovie.Title;
             }
 
+            // Declaration of empty variable
             string movieTitle = "";
+
+
             //User has chosen movie title via textbox
             if (Session["movieTitle"] != null)
             {
                 movieTitle = (string)Session["movieTitle"];
             }
+
             //User has chosen movie title via textbox
             int movieId = 0;
+
+            // If a title has been entered, get its id
             if (movieTitle != "")
             {
-                movieId = db.Movies.Where(m => m.Title == movieTitle).Select(x => x.Id).FirstOrDefault();
+                movieId = db.Movies.Where(m => m.Title == movieTitle)
+                    .Select(x => x.Id)
+                    .FirstOrDefault();
+
+                // If a valid id then add it to moviesToDisplay
                 if (movieId != 0)
                 {
                     moviesToDisplay.Add(db.Movies.Find(movieId));
@@ -94,87 +127,76 @@ namespace MovieShopDelta.Controllers
                     moviesToDisplay = db.Movies.ToList();
                 }
             }
+
+            // If no title has been entered display all movies
             else
             {
                 moviesToDisplay = db.Movies.ToList();
             }
-            //User has selected movies to buy
-            //Fel?
+
+
+            //User has pressed plus button (add movie to cart)
             if (Session["MovieIds"] != null)
             {
+                // Add ids to list
                 string listOfMovieIds = (string)Session["MovieIds"];
 
                 List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
 
                 foreach (var mid in lomi)
                 {
-                    //Selected movies gets added to list
                     selectedMovies.Add(db.Movies.Find(mid));
                 }
-                List<Movie> result = new List<Movie>();
-                //Har skrivit in film i textbox
-                //THIS ONE MIGHT BE WRONG
-                /*if (Session["MovieTitle"] == null)
-                {
-                    result = moviesToDisplay.Concat(selectedMovies).ToList();
-                }
-                else
-                {
-                    result = selectedMovies;
-                }*/
-                //result = moviesToDisplay.Concat(selectedMovies).ToList();
-                //List<Movie> result = selectedMovies.Add(movies);
-                // var result = selectedMovies.(movies);
 
+                // Creates a list combining movies
+                List<Movie> result = new List<Movie>();
+                
                 if (moviesToDisplay.Count() == 1)
                 {
-                    selectedMovies = selectedMovies.Where(m => m.Id == movieId).Select(x => x).ToList();
+                    selectedMovies = selectedMovies.Where(m => m.Id == movieId)
+                        .Select(x => x)
+                        .ToList();
                 }
+
                 result = moviesToDisplay.Concat(selectedMovies).ToList();
-                movieList = result.GroupBy(mid => mid.Id).Select(m => new MovieQuantityVM
-                {
-                    Id = m.FirstOrDefault().Id,
-                    Title = m.FirstOrDefault().Title,
-                    Director = m.FirstOrDefault().Director,
-                    ReleaseYear = m.FirstOrDefault().ReleaseYear,
-                    Genre = m.FirstOrDefault().Genre,
-                    Price = m.FirstOrDefault().Price,
-                    ImageURL = m.FirstOrDefault().ImageURL,
-                    Quantity = m.Count() - 1
-                }).OrderBy(m => m.Title).ToList();
 
-                /*foreach (var mid in lomi)
-                {
-                    shoppingList.Add(db.Movies.Find(mid));
-                }*/
+                movieList = result.GroupBy(mid => mid.Id)
+                    .Select(m => new MovieQuantityVM
+                        {
+                            Id = m.FirstOrDefault().Id,
+                            Title = m.FirstOrDefault().Title,
+                            Director = m.FirstOrDefault().Director,
+                            ReleaseYear = m.FirstOrDefault().ReleaseYear,
+                            Genre = m.FirstOrDefault().Genre,
+                            Price = m.FirstOrDefault().Price,
+                            ImageURL = m.FirstOrDefault().ImageURL,
+                            Quantity = m.Count() - 1
+                        })
+                    .OrderBy(m => m.Title)
+                    .ToList();
 
-                // Send the list of movies to _AllMovies partial to be displayed
-                // on the ShoppingCart view (which gets this action)
-                // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
-
-                //return View("AllTheMovies", movieList);
                 return PartialView("_AllMovies", movieList);
             }
             else
             {
-                movieList = moviesToDisplay.GroupBy(mid => mid.Id).Select(m => new MovieQuantityVM
-                {
-                    Id = m.FirstOrDefault().Id,
-                    Title = m.FirstOrDefault().Title,
-                    Director = m.FirstOrDefault().Director,
-                    ReleaseYear = m.FirstOrDefault().ReleaseYear,
-                    Genre = m.FirstOrDefault().Genre,
-                    Price = m.FirstOrDefault().Price,
-                    ImageURL = m.FirstOrDefault().ImageURL,
-                    Quantity = m.Count() - 1
-                }).OrderBy(m => m.Title).ToList();
+                movieList = moviesToDisplay.GroupBy(mid => mid.Id)
+                    .Select(m => new MovieQuantityVM
+                        {
+                            Id = m.FirstOrDefault().Id,
+                            Title = m.FirstOrDefault().Title,
+                            Director = m.FirstOrDefault().Director,
+                            ReleaseYear = m.FirstOrDefault().ReleaseYear,
+                            Genre = m.FirstOrDefault().Genre,
+                            Price = m.FirstOrDefault().Price,
+                            ImageURL = m.FirstOrDefault().ImageURL,
+                            Quantity = m.Count() - 1
+                        })
+                    .OrderBy(m => m.Title)
+                    .ToList();
                 
-                //return View("AllTheMovies", movieList);
                 return PartialView("_AllMovies", movieList);
                 
             }
-            //var movieList = db.Movies.ToList();
-            //return PartialView("_AllMovies",movieList);
         }
     }
 }

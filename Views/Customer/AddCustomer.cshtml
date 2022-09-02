@@ -13,7 +13,6 @@
 
     @Html.AntiForgeryToken()
 
-    @* NEW CODE 2*@
     <form>
         <div class="form-horizontal">
             <div class="row col-7">
@@ -103,102 +102,6 @@
                 <br />
                 <button type="submit" value="create" class="btn btn-success">Create</button>
             </div>
-            @*<div class="row form-group">
-            <br />
-            <button type="submit" value="create" class="btn btn-success">Create</button>
-        </div>*@
         </div>
     </form>
-
-    @* ORIGINAL CODE *@
-    @*<form>
-        <div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Jane" } })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Doe" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.BillingAddress, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BillingAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "Billing Address" } })
-                    @Html.ValidationMessageFor(model => model.BillingAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.BillingCity, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BillingCity, new { htmlAttributes = new { @class = "form-control", placeholder = "Billing Address" } })
-                    @Html.ValidationMessageFor(model => model.BillingCity, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.BillingZip, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BillingZip, new { htmlAttributes = new { @class = "form-control", placeholder = "Billing Zip" } })
-                    @Html.ValidationMessageFor(model => model.BillingZip, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DeliveryAddress, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DeliveryAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "Delivery Address" } })
-                    @Html.ValidationMessageFor(model => model.DeliveryAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DeliveryCity, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DeliveryCity, new { htmlAttributes = new { @class = "form-control", placeholder = "Delivery City" } })
-                    @Html.ValidationMessageFor(model => model.DeliveryCity, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DeliveryZip, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DeliveryZip, new { htmlAttributes = new { @class = "form-control", placeholder = "Delivery Zip" } })
-                    @Html.ValidationMessageFor(model => model.DeliveryZip, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone number" } })
-                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "form-label mt-4" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "email@example.com" } })
-                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <br />
-                <button type="submit" value="create" class="btn btn-success">Create</button>
-            </div>
-        </div>
-    </form>*@
-
 }

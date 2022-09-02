@@ -63,31 +63,23 @@ namespace MovieShopDelta.Controllers
                     selectedMovies.Add(db.Movies.Find(mid));
                 }
 
-                shoppingList = selectedMovies.GroupBy(mmid => mmid.Id).Select(m => new BoughtMoviesVM
-                {
-                    Id = m.FirstOrDefault().Id,
-                    Price = m.Sum(x => x.Price),
-                    Title = m.FirstOrDefault().Title,
-                    Quantity = m.Count()
-                }).ToList();
-
-                /*foreach (var mid in lomi)
-                {
-                    shoppingList.Add(db.Movies.Find(mid));
-                }*/
-
-                // Send the list of movies to _AllMovies partial to be displayed
-                // on the ShoppingCart view (which gets this action)
-                // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
-                //ViewBag.TotalPrice = 
+                shoppingList = selectedMovies.GroupBy(mmid => mmid.Id)
+                    .Select(m => new BoughtMoviesVM
+                        {
+                            Id = m.FirstOrDefault().Id,
+                            Price = m.Sum(x => x.Price),
+                            Title = m.FirstOrDefault().Title,
+                            Quantity = m.Count()
+                        })
+                    .ToList();
+ 
                 return PartialView(shoppingList);
 
             }
             else
             {
                 // Send the list of movies to _AllMovies partial to be displayed
-                // on the ShoppingCart view (which gets this action)
-                // return PartialView("~/Views/Movie/_AllMovies.cshtml",shoppingList);
+                // on the BoughtMovies view (which gets this action)
 
                 return PartialView(shoppingList);
             }
@@ -108,7 +100,7 @@ namespace MovieShopDelta.Controllers
             
             //Get Customer Id
             var customerId = 0;
-            customerId = (from c in customerList where c.EmailAddress == email select c.Id).FirstOrDefault(); // Changed to lambda expression
+            customerId = (from c in customerList where c.EmailAddress == email select c.Id).FirstOrDefault();
 
             //Check if we have a customer id
             if (customerId == 0)

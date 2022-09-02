@@ -52,7 +52,7 @@ namespace MovieShopDelta.Controllers
                 {
                     MovieId = obj.Key,
                     Count = obj.Count(),
-                    Title = obj.FirstOrDefault().Title,
+                    Title = obj.FirstOrDefault().Title
                 })
 
                 // Structuring
