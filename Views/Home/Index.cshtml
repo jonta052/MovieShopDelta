@@ -25,7 +25,7 @@
         <div class="carousel-item" data-bs-interval="8000">
             <img src="https://i.pinimg.com/originals/4e/3f/41/4e3f41bab342202c89c677305ef4071c.jpg" style="width: 500px; height: 500px; object-fit: contain; " class="d-block w-100 CarouselImg">
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="8000">
             <img style="width: 500px; height: 500px; object-fit: contain; " src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/7d2081c07a6afa338191e68c73e1959f7761b53cf9b691d59926aa0ef89874e5._RI_V_TTW_.jpg" class="d-block w-100 img">
         </div>
     </div>
@@ -42,32 +42,33 @@
 <br />
 <div class="container BgA">
     <div class="row">
-        <div class="col">
+        <div class="col-sm-5 bg-blue-opacity top-list-box">
             @* Most popular movies *@
             @Html.Action("MostPopularMovies")
         </div>
-
-        <div class="col">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6 bg-blue-opacity top-list-box">
             @* 5 newest movies *@
             @Html.Action("FiveNewestMovies")
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row" style="margin-top:30px;">
+        <div class="col-sm-5 bg-blue-opacity top-list-box">
             @* 5 oldest movies *@
             @Html.Action("FiveOldestMovies")
         </div>
-
-        <div class="col">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6 bg-blue-opacity top-list-box">
             @* 5 cheapest movies *@
             @Html.Action("FiveCheapestMovies")
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row" style="margin-top:30px;">
+        <div class="col-sm-5 bg-blue-opacity top-list-box">
             @* Customer with the most expensive order *@
             @Html.Action("MostExpensiveOrder")
         </div>
-
     </div>
 </div>

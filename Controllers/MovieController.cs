@@ -11,7 +11,6 @@ namespace MovieShopDelta.Controllers
     public class MovieController : Controller
     {
         AppDbContext db = new AppDbContext();
-        // GET: Movie
         public ActionResult Index()
         {
             return View();
@@ -39,7 +38,6 @@ namespace MovieShopDelta.Controllers
             return View(movie);
         }
 
-        //If user want's to return from one selected movie to the list of all movies
         public ActionResult Nollare()
         {
             Session["movieTitle"] = null;
