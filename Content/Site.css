@@ -49,10 +49,15 @@ textarea {
 }
 
 .order-box {
-    background-color: #385c7c;
-    margin-block-end: 40px;
-    padding: 20px;
-    max-width: 700px;
+    border-radius: 25px;
+    padding-left: 18px;
+    margin-left: 4px
+}
+
+.top-list-box{
+    border-radius: 25px;
+    padding-left: 18px;
+    padding-top: 30px;
 }
 
 #grad {
@@ -75,4 +80,8 @@ textarea {
     width: 440px;
     height: 160px;
     object-fit: contain;
+}
+
+.bg-blue-opacity {
+    background-color: rgba(56, 92, 124, 0.6)
 }
