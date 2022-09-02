@@ -203,9 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202209020506061_createDB.cs" />
-    <Compile Include="Migrations\202209020506061_createDB.designer.cs">
-      <DependentUpon>202209020506061_createDB.cs</DependentUpon>
+    <Compile Include="Migrations\202209020901042_initial.cs" />
+    <Compile Include="Migrations\202209020901042_initial.designer.cs">
+      <DependentUpon>202209020901042_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Database\OrderRow.cs" />
@@ -329,8 +329,8 @@
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202209020506061_createDB.resx">
-      <DependentUpon>202209020506061_createDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209020901042_initial.resx">
+      <DependentUpon>202209020901042_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -183,14 +183,6 @@
             new Models.Database.Order
             {
                 CustomerId = 4
-            },
-            new Models.Database.Order
-            {
-                CustomerId = 5
-            },
-            new Models.Database.Order
-            {
-                CustomerId = 6
             }
             );
             context.OrderRows.AddOrUpdate(c => c.Id, new Models.Database.OrderRow

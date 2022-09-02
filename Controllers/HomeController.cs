@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MovieShopDelta.Models.Database;
-using MovieShopDelta.Models.ViewModels;
+﻿using MovieShopDelta.Data;
 using MovieShopDelta.Models;
-using MovieShopDelta.Data;
+using MovieShopDelta.Models.ViewModels;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace MovieShopDelta.Controllers
 {
@@ -42,15 +38,15 @@ namespace MovieShopDelta.Controllers
                 .Join(db.OrderRows,
                 m => m.Id,
                 o => o.MovieId,
-                (m, o) => new 
+                (m, o) => new
                 {
                     MovieId = o.MovieId,
                     Title = m.Title
                 })
-                
+
                 // Group data
                 .GroupBy(movie => movie.MovieId)
-                
+
                 // Select what data to use
                 .Select(obj => new MostPopularMoviesVM
                 {
@@ -58,7 +54,7 @@ namespace MovieShopDelta.Controllers
                     Count = obj.Count(),
                     Title = obj.FirstOrDefault().Title,
                 })
-                
+
                 // Structuring
                 .OrderByDescending(count => count.Count)
                 .ThenBy(title => title.Title)
@@ -79,7 +75,7 @@ namespace MovieShopDelta.Controllers
                 .Take(5)
                 .ToList();
 
-            return PartialView("_FiveNewestMovies",fiveNewestMovies);
+            return PartialView("_FiveNewestMovies", fiveNewestMovies);
         }
 
         public ActionResult FiveOldestMovies()
@@ -93,7 +89,7 @@ namespace MovieShopDelta.Controllers
                 .Take(5)
                 .ToList();
 
-            return PartialView("_FiveOldestMovies",fiveOldestMovies);
+            return PartialView("_FiveOldestMovies", fiveOldestMovies);
         }
 
         public ActionResult FiveCheapestMovies()
@@ -107,7 +103,7 @@ namespace MovieShopDelta.Controllers
                 .Take(5)
                 .ToList();
 
-            return PartialView("_FiveCheapestMovies",fiveCheapestMovies);
+            return PartialView("_FiveCheapestMovies", fiveCheapestMovies);
         }
 
         public ActionResult MostExpensiveOrder()
