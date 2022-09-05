@@ -20,6 +20,12 @@ namespace MovieShopDelta.Controllers
         public ActionResult AddToCart(int? id, string thisAction, string thisController)
         {
             Session["MovieIds"] = Session["MovieIds"] +","+ id.ToString();
+
+            string listOfMovieIds = (string)Session["MovieIds"];
+            List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+
+            Session["MoviesinCart"] =  lomi.Count();
+
             return RedirectToAction(thisAction, thisController);
         }
 
@@ -41,6 +47,9 @@ namespace MovieShopDelta.Controllers
                 listOfMovieIds = String.Join(",", temp.ToArray());
 
                 Session["MovieIds"] = listOfMovieIds;
+
+                List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+                Session["MoviesinCart"] = lomi.Count();
 
                 return RedirectToAction(thisAction, thisController);
             }
@@ -88,7 +97,11 @@ namespace MovieShopDelta.Controllers
         //Only has textbox + Customer model that is sent to another view
         public ActionResult ShoppingCart()
         {
-            ViewBag.HasMovieId = Session["MovieIds"] != null;
+            if (!string.IsNullOrEmpty(Session["MovieIds"] as string))
+            {
+                ViewBag.HasMovieId = Session["MovieIds"];
+            }
+            
             return View();
         }
 
