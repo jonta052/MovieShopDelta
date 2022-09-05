@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<MovieShopDelta.Models.ViewModels.MovieQuantityVM>
+﻿@model IEnumerable<MovieShopDelta.Models.ViewModels.MovieQuantityVM>
 
 @{
     ViewBag.Title = "Movie List";
@@ -63,7 +62,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllTheMovies", thisController = "Movie" }, null)'" />
+                            <input type="button" id="plus" value="+" class="btn btn-success" onclick="location.href = '@Url.Action("AddToCart", "Order", new { id = item.Id, thisAction = "AllTheMovies", thisController = "Movie" }, null)'" />
                             <input type="button" id="minus" value="-" class="btn btn-danger" onclick="location.href='@Url.Action("RemFromCart", "Order", new { id = item.Id, thisAction = "AllTheMovies", thisController = "Movie" }, null)'" />
                             &nbsp;&nbsp;&nbsp;
                             <span><strong>@Html.DisplayFor(modelItem => item.Quantity)</strong></span>
@@ -79,3 +78,4 @@
     {
         <input type="button" value="Return" class="btn btn-success" onclick="location.href='@Url.Action("AddToCart", "Order", new { thisAction = "Nollare", thisController = "Movie" }, null)'" />
     }
+ 

@@ -12,6 +12,11 @@ namespace MovieShopDelta.Controllers
 
         public ActionResult Index()
         {
+            if (Session["MoviesinCart"] == null)
+            {
+                Session["MoviesinCart"] = 0;
+            }
+            
             return View();
         }
 

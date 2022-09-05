@@ -150,7 +150,9 @@ namespace MovieShopDelta.Controllers
 
                 // Creates a list combining movies
                 List<Movie> result = new List<Movie>();
-                
+
+                //If moviesToDisplay only consists of one movie, selectedMovies have to only contain
+                //copies of that movie or else the result variable will display other selected movies too
                 if (moviesToDisplay.Count() == 1)
                 {
                     selectedMovies = selectedMovies.Where(m => m.Id == movieId)
