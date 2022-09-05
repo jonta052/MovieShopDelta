@@ -23,7 +23,7 @@ namespace MovieShopDelta.Controllers
 
             string listOfMovieIds = (string)Session["MovieIds"];
             List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
-
+            //Session for displaying number of movies on the Cart icon
             Session["MoviesinCart"] =  lomi.Count();
 
             return RedirectToAction(thisAction, thisController);
@@ -49,6 +49,7 @@ namespace MovieShopDelta.Controllers
                 Session["MovieIds"] = listOfMovieIds;
 
                 List<int> lomi = listOfMovieIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+                //Session for displaying number of movies on the Cart icon
                 Session["MoviesinCart"] = lomi.Count();
 
                 return RedirectToAction(thisAction, thisController);
